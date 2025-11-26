@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fleet | Bus Hire</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300;400;500;600;700&family=Red+Hat+Text:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
+      .font-radio {
+        font-family: "Radio Canada", sans-serif;
+      }
+      .font-redhat {
+        font-family: "Red Hat Text", sans-serif;
+      }
+      .font-raleway {
+        font-family: "Raleway", sans-serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+
+      .fleet-card {
+        transition: all 0.4s ease;
+      }
+      .fleet-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(249, 76, 44, 0.3);
+      }
+      .fleet-card img {
+        transition: 0.4s ease;
+      }
+      .fleet-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .book-btn {
+        transition: 0.3s ease;
+      }
+      .book-btn:hover {
+        background: #ff3311 !important;
+        transform: scale(1.05);
+      }
+
+      .active-filter {
+        background: #f94c2c !important;
+        color: white !important;
+        border-color: #f94c2c !important;
+      }
+
+      /* --- FIXED PARALLAX CSS --- */
+      .cta-parallax {
+        /* Set background image from original element */
+        background-image: url("assets/images/bannerimage.png");
+        background-size: cover;
+        background-attachment: fixed; /* KEY: This makes the background fixed relative to the viewport */
+        background-position: center; /* Ensures the image is centered */
+        position: relative; /* Needed for the absolute overlay */
+      }
+      /* Ensure the black overlay covers the parallax area */
+      .cta-parallax > .bg-black\/60 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      /* Ensure the content is above the overlay */
+      .cta-parallax .z-10 {
+        position: relative;
+      }
+      /* --- END FIX --- */
+    </style>
+  </head>
+
+  <body class="bg-gray-100">
+    <div
+      class="relative min-h-[40vh] bg-[url('assets/images/bannerimage.png')] bg-cover bg-center bg-no-repeat"
+    >
+      <div class="absolute inset-0 bg-black/50"></div>
+
+      <div class="w-full flex relative">
+        <div class="w-[90%] flex">
+          <div
+            class="logo-circle bg-white rounded-full w-[300px] h-[300px] top-[-180px] left-[-30px] absolute flex justify-center item-center"
+          >
+            <p class="mt-[190px] font-bold text-black text-3xl">
+              Bus <span class="text-[#F94C2C]">Hire</span>
+            </p>
+          </div>
+          <div class="w-[80%] flex flex-col mt-[-80px] items-end ml-[290px]">
+            <div class="flex gap-8 mt-[100px]">
+              <a
+                href="tel:1223445454545"
+                class="contact-icon flex items-center gap-2 text-white font-radio"
+              >
+                <i class="ri-phone-line text-[#F94C2C] text-2xl"></i>
+                1223445454545
+              </a>
+              <a
+                href="mailto:test@gmail.com"
+                class="contact-icon flex items-center gap-2 text-white font-radio"
+              >
+                <i class="ri-mail-line text-[#F94C2C] text-2xl"></i>
+                test@gmail.com
+              </a>
+            </div>
+
+            <div class="w-[90%] border-t border-gray-400 mt-6 flex justify-end">
+              <ul class="flex gap-10 pt-4 font-redhat text-white text-[18px]">
+                <a href="index.html" class="nav-item">HOME</a>
+                <a href="about.html" class="nav-item">ABOUT</a>
+                <a href="services.html" class="nav-item">OUR SERVICES</a>
+                <a href="fleet.html" class="nav-item text-[#F94C2C]"
+                  >OUR FLEETS</a
+                >
+                <a href="contact.html" class="nav-item">CONTACT</a>
+                <a href="hire.html" class="nav-item">BLOG</a>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full flex justify-center relative mt-16">
+        <div class="w-[90%]">
+          <h2 class="text-white font-redhat text-3xl font-bold">
+            Explore Our Fleet Range
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full py-20">
+      <div class="w-[95%] flex gap-10">
+        <div class="w-[50%] relative flex mr-20">
+          <img src="assets/images/Ellipse3.png" class="h-[480px] mt-10" />
+          <div
+            class="w-[400px] h-[400px] flex justify-end items-end mt-[100px] ml-[-140px]"
+          >
+            <img
+              src="assets/images/busimage7.jpg"
+              class="h-[370px] w-[390px] mr-[100px]"
+            />
+
+            <img
+              src="assets/images/aboutbus.jpg"
+              class="h-[370px] absolute right-[-40px] top-[60px] w-[390px]"
+            />
+          </div>
+        </div>
+
+        <div class="w-[50%]">
+          <div class="flex items-center gap-2">
+            <div class="w-[150px] h-[1px] bg-[#F94C2C]"></div>
+            <h2 class="text-2xl text-black font-redhat font-bold font-inter">
+              Our Fleet
+            </h2>
+          </div>
+
+          <h1
+            class="text-5xl font-semibold font-inter mt-6 font-redhat text-black leading-tight"
+          >
+            EXPLORE OUR PREMIUM
+            <br />
+            <span class="text-[#F94C2C] mt-[2px]">BUS & COACH FLEET</span>
+          </h1>
+
+          <p class="text-black font-raleway mt-4">
+            We offer a modern and well-maintained fleet designed for every type
+            of journey — airport transfers, corporate travel, school trips,
+            tours, weddings, and long-distance travel. Our vehicles ensure
+            maximum comfort, safety, and affordability, giving you a smooth and
+            reliable travel experience anywhere in the UK.
+          </p>
+
+          <ul class="mt-5">
+            <li class="flex gap-2 items-center mt-2">
+              <img src="assets/images/bulletpoint.png" class="h-[20px]" />
+              16–70 Seater Buses & Luxury Coaches Available
+            </li>
+            <li class="flex gap-2 items-center mt-2">
+              <img src="assets/images/bulletpoint.png" class="h-[20px]" />
+              Comfortable AC, Pushback Seats & Spacious Interiors
+            </li>
+            <li class="flex gap-2 items-center mt-2">
+              <img src="assets/images/bulletpoint.png" class="h-[20px]" />
+              Professional, Trained & Licensed Drivers
+            </li>
+          </ul>
+
+          <a
+            href="#fleetSection"
+            class="relative mt-10 inline-flex items-center cursor-pointer group"
+          >
+            <div
+              class="w-[160px] h-[50px] rounded-md border border-white text-black text-[20px] flex items-center justify-center shadow-[0_0_15px_0_#F94C2C] bg-transparent transition-all duration-300 group-hover:shadow-[0_0_25px_5px_#F94C2C]"
+            >
+              View Fleet
+            </div>
+
+            <div
+              class="absolute right-[-18px] top-1/2 -translate-y-1/2 w-[30px] h-[30px] rounded-md bg-[#F94C2C] flex justify-center items-center"
+            >
+              <img src="assets/images/arrow.png" class="w-[15px]" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex justify-center py-10 bg-white shadow-inner">
+      <div class="w-[90%] max-w-7xl flex justify-center">
+        <div class="flex flex-wrap gap-4 justify-center">
+          <button
+            onclick="filterFleet('all')"
+            id="all"
+            class="px-8 py-3 bg-white rounded-[5px] font-redhat text-lg filter-btn active-filter border-[1px] border-[#F94C2C]"
+          >
+            All Fleets
+          </button>
+
+          <button
+            onclick="filterFleet('16')"
+            id="16"
+            class="px-6 py-3 bg-white rounded-[5px] border-[1px] border-[#F94C2C] font-redhat text-lg filter-btn"
+          >
+            16 Seater
+          </button>
+
+          <button
+            onclick="filterFleet('24')"
+            id="24"
+            class="px-6 py-3 bg-white rounded-[5px] border-[1px] border-[#F94C2C] font-redhat text-lg filter-btn"
+          >
+            24 Seater
+          </button>
+
+          <button
+            onclick="filterFleet('32')"
+            id="32"
+            class="px-6 py-3 bg-white rounded-[5px] border-[1px] border-[#F94C2C] font-redhat text-lg filter-btn"
+          >
+            32 Seater
+          </button>
+
+          <button
+            onclick="filterFleet('vip')"
+            id="vip"
+            class="px-6 py-3 bg-white rounded-[5px] border-[1px] border-[#F94C2C] font-redhat text-lg filter-btn"
+          >
+            VIP Luxury
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex justify-center py-16 bg-gray-100" id="fleetSection">
+      <div
+        id="fleetContainer"
+        class="w-[90%] max-w-7xl grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        <div
+          class="fleet-card bg-white shadow-lg hover:shadow-2xl overflow-hidden"
+          data-category="16"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="https://www.taxiyatri.com/images/16-seater-tempo-traveller.webp"
+              class="w-full h-[220px] object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="font-redhat text-2xl font-bold text-gray-800">
+              16 Seater Mini Bus
+            </h3>
+            <p class="text-gray-500 mt-2 font-raleway text-base">
+              Compact, comfortable and perfect for small group travel.
+            </p>
+            <button
+              class="book-btn rounded-[5px] mt-5 px-6 py-3 bg-[#F94C2C] text-white font-semibold text-lg hover:bg-[#ff3311] transition duration-300"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="fleet-card bg-white shadow-lg hover:shadow-2xl overflow-hidden"
+          data-category="24"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="https://www.winmaxitravels.com/images/car/detail/24-seater.webp"
+              class="w-full h-[220px] object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="font-redhat text-2xl font-bold text-gray-800">
+              24 Seater Coach
+            </h3>
+            <p class="text-gray-500 mt-2 font-raleway text-base">
+              Spacious and ideal for medium group travel across UK.
+            </p>
+            <button
+              class="book-btn rounded-[5px] mt-5 px-6 py-3 bg-[#F94C2C] text-white font-semibold text-lg hover:bg-[#ff3311] transition duration-300"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="fleet-card bg-white shadow-lg hover:shadow-2xl overflow-hidden"
+          data-category="vip"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="https://5.imimg.com/data5/SELLER/Default/2022/10/MO/DS/JX/8114104/minibus-24-seater-ac.jpg"
+              class="w-full h-[220px] object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="font-redhat text-2xl font-bold text-gray-800">
+              VIP Luxury Bus
+            </h3>
+            <p class="text-gray-500 mt-2 font-raleway text-base">
+              Premium interiors, AC, pushback seats, entertainment system.
+            </p>
+            <button
+              class="book-btn rounded-[5px] mt-5 px-6 py-3 bg-[#F94C2C] text-white font-semibold text-lg hover:bg-[#ff3311] transition duration-300"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="fleet-card bg-white shadow-lg hover:shadow-2xl overflow-hidden"
+          data-category="32"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="https://5.imimg.com/data5/SELLER/Default/2022/10/MO/DS/JX/8114104/minibus-24-seater-ac.jpg"
+              class="w-full h-[220px] object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="font-redhat text-2xl font-bold text-gray-800">
+              32 Seater Tourist Coach
+            </h3>
+            <p class="text-gray-500 mt-2 font-raleway text-base">
+              Suitable for long trips, school tours and corporate travel.
+            </p>
+            <button
+              class="book-btn rounded-[5px] mt-5 px-6 py-3 bg-[#F94C2C] text-white font-semibold text-lg hover:bg-[#ff3311] transition duration-300"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="fleet-card bg-white shadow-lg hover:shadow-2xl overflow-hidden"
+          data-category="vip"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="https://5.imimg.com/data5/SELLER/Default/2022/10/MO/DS/JX/8114104/minibus-24-seater-ac.jpg"
+              class="w-full h-[220px] object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="font-redhat text-2xl font-bold text-gray-800">
+              VIP Executive Coach
+            </h3>
+            <p class="text-gray-500 mt-2 font-raleway text-base">
+              Leather seats, luxury lighting and executive comfort.
+            </p>
+            <button
+              class="book-btn rounded-[5px] mt-5 px-6 py-3 bg-[#F94C2C] text-white font-semibold text-lg hover:bg-[#ff3311] transition duration-300"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="fleet-card bg-white shadow-lg hover:shadow-2xl overflow-hidden"
+          data-category="24"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="https://5.imimg.com/data5/SELLER/Default/2022/10/MO/DS/JX/8114104/minibus-24-seater-ac.jpg"
+              class="w-full h-[220px] object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="font-redhat text-2xl font-bold text-gray-800">
+              24 Seater Deluxe Bus
+            </h3>
+            <p class="text-gray-500 mt-2 font-raleway text-base">
+              Modern design, comfortable seating and smooth ride.
+            </p>
+            <button
+              class="book-btn rounded-[5px] mt-5 px-6 py-3 bg-[#F94C2C] text-white font-semibold text-lg hover:bg-[#ff3311] transition duration-300"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-parallax py-24 sm:py-32">
+      <div class="relative inset-0 bg-black/60"></div>
+      <div class="relative w-full flex justify-center text-center px-4 z-10">
+        <div class="max-w-4xl">
+          <h2
+            class="text-4xl sm:text-5xl font-extrabold text-white font-redhat leading-tight"
+          >
+            Ready to Book Your Next Journey?
+          </h2>
+          <p class="text-xl text-gray-300 font-raleway mt-4 mb-8">
+            Get a quick, free quote for your group travel needs anywhere in the
+            UK. Safe, reliable, and comfortable transport is just a click away.
+          </p>
+          <a
+            href="contact.html"
+            class="inline-block px-10 py-4 text-xl font-bold text-white border-[1px] border-[#F94C2C] shadow-lg transition duration-500 transform hover:scale-105 hover:bg-[#ff3311] hover:shadow-2xl"
+          >
+            Get a Free Quote Now
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w-full flex justify-center py-16 relative">
+      <div class="w-[70%]">
+        <h2 class="text-[40px] font-redhat font-bold text-center mb-10">
+          Frequently <span class="text-[#F94C2C]">Asked</span> Questions
+        </h2>
+
+        <div class="space-y-4">
+          <div class="border rounded-lg overflow-hidden shadow-sm">
+            <button
+              class="faq-btn w-full flex justify-between items-center bg-[#F94C2C] border-[1px] border-[rgba(249,76,44,0.58)] px-5 py-4 text-white font-semibold font-raleway text-left"
+              onclick="toggleFaq(1)"
+            >
+              <span
+                >1. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry ?</span
+              >
+              <span class="text-2xl font-bold" id="icon-1">−</span>
+            </button>
+            <div
+              id="content-1"
+              class="px-5 font-raleway py-4 bg-white text-gray-700"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy.
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </div>
+          </div>
+
+          <div class="border rounded-lg overflow-hidden shadow-sm">
+            <button
+              class="faq-btn w-full flex font-raleway justify-between items-center px-5 py-4 bg-[#FFF2F2] font-semibold text-left"
+              onclick="toggleFaq(2)"
+            >
+              <span
+                >2. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry ?</span
+              >
+              <span class="text-2xl font-bold text-[#F94C2C]" id="icon-2"
+                >+</span
+              >
+            </button>
+            <div
+              id="content-2"
+              class="hidden font-raleway px-5 py-4 bg-white text-gray-700"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </div>
+          </div>
+
+          <div class="border rounded-lg overflow-hidden shadow-sm">
+            <button
+              class="faq-btn w-full flex justify-between font-raleway items-center px-5 py-4 bg-[#FFF2F2] font-semibold text-left"
+              onclick="toggleFaq(3)"
+            >
+              <span
+                >3. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry ?</span
+              >
+              <span class="text-2xl font-bold text-[#F94C2C]" id="icon-3"
+                >+</span
+              >
+            </button>
+            <div
+              id="content-3"
+              class="hidden font-raleway px-5 py-4 bg-white text-gray-700"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="assets/images/faqcircle.png" class="absolute left-0 w-[20%]" />
+    </div>
+
+    <div
+      class="relative bg-cover bg-center bg-[url('assets/images/footerbg.jpg')] py-12"
+    >
+      <div class="absolute inset-0 bg-black/80"></div>
+
+      <div class="relative w-full flex justify-center">
+        <div class="w-[80%] grid grid-cols-1 md:grid-cols-4 gap-10 text-white">
+          <div>
+            <h5 class="text-3xl font-bold uppercase">
+              Bus <span class="text-[#F94C2C]">Hire</span>
+            </h5>
+            <p
+              class="mt-3 font-raleway text-[18px] text-gray-300 leading-relaxed"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard.
+            </p>
+
+            <div
+              class="flex gap-2 justify-center py-2 rounded-tr-[10px] rounded-br-[10px] mt-5 bg-[#F94C2C9C] ml-[-150px]"
+            >
+              <a
+                class="social-icon w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white cursor-pointer"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                class="social-icon w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white cursor-pointer"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                class="social-icon w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white cursor-pointer"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="ml-10">
+            <h3 class="text-[25px] font-semibold font-redhat mb-4">
+              Quick Links
+            </h3>
+            <ul class="space-y-2 text-gray-300 font-raleway text-[18px]">
+              <li class="footer-link cursor-pointer flex gap-2">
+                <img src="assets/images/check.png" /> Home
+              </li>
+              <a
+                href="about.html"
+                class="footer-link cursor-pointer flex gap-2"
+              >
+                <img src="assets/images/check.png" /> About Us
+              </a>
+              <li class="footer-link cursor-pointer flex gap-2">
+                <img src="assets/images/check.png" /> Our Services
+              </li>
+              <li class="footer-link cursor-pointer flex gap-2">
+                <img src="assets/images/check.png" /> Our Fleets
+              </li>
+              <a
+                href="contact.html"
+                class="footer-link cursor-pointer flex gap-2"
+              >
+                <img src="assets/images/check.png" /> Contact
+              </a>
+              <li class="footer-link cursor-pointer flex gap-2">
+                <img src="assets/images/check.png" /> Blog
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-[25px] font-semibold font-redhat mb-4">
+              Contact Info
+            </h3>
+            <ul class="space-y-4 text-gray-300 font-raleway text-[18px]">
+              <li class="flex gap-3">
+                <i class="fa-solid fa-location-dot text-[#F94C2C] text-lg"></i>
+                32 Lorem Rd, Lorem BR2 8BA,<br />United Kingdom
+              </li>
+              <li class="flex gap-3">
+                <i class="fa-solid fa-envelope text-[#F94C2C] text-lg"></i>
+                Loremtest@gmail.com
+              </li>
+              <li class="flex gap-3">
+                <i class="fa-solid fa-phone text-[#F94C2C] text-lg"></i>
+                0123-4567-6065
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-[25px] font-semibold font-redhat mb-4">
+              Working Hours
+            </h3>
+            <p class="text-gray-300 mb-2">
+              Monday to Friday:
+              <span class="text-white font-semibold">8am to 8pm</span>
+            </p>
+            <p class="text-gray-300">
+              Saturday–Sunday:
+              <span class="text-white font-semibold">9am to 5pm</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full flex justify-center">
+        <div
+          class="relative w-[80%] mt-10 border-t border-[#F94C2C] pt-4 text-center text-gray-300"
+        >
+          © 2025 All Rights Reserved Lorem Ipsum Services
+        </div>
+      </div>
+    </div>
+    <script>
+      function toggleFaq(id) {
+        const content = document.getElementById("content-" + id);
+        const icon = document.getElementById("icon-" + id);
+
+        if (content.classList.contains("hidden")) {
+          content.classList.remove("hidden");
+          icon.innerHTML = "−";
+        } else {
+          content.classList.add("hidden");
+          icon.innerHTML = "+";
+        }
+      }
+
+      function filterFleet(cat) {
+        let cards = document.querySelectorAll(".fleet-card");
+        let buttons = document.querySelectorAll(".filter-btn");
+
+        buttons.forEach((btn) => btn.classList.remove("active-filter"));
+        document.getElementById(cat).classList.add("active-filter");
+
+        cards.forEach((card) => {
+          if (cat === "all") {
+            card.style.display = "block";
+          } else {
+            card.style.display =
+              card.getAttribute("data-category") === cat ? "block" : "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

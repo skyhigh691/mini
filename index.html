@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus Hire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300;400;500;600;700&family=Red+Hat+Text:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
+      .font-radio {
+        font-family: "Radio Canada", sans-serif;
+      }
+
+      .font-redhat {
+        font-family: "Red Hat Text", sans-serif;
+      }
+
+      .font-raleway {
+        font-family: "Raleway", sans-serif;
+      }
+
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+
+      .btn-hover {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .btn-hover:hover::before {
+        left: 100%;
+      }
+
+      .btn-hover:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 25px 0 #f94c2c;
+      }
+
+      .btn-hover .arrow-box {
+        transition: all 0.3s ease;
+      }
+
+      .btn-hover:hover .arrow-box {
+        transform: translateX(5px);
+      }
+
+      .nav-item {
+        position: relative;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .nav-item::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #f94c2c;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-item:hover {
+        color: #f94c2c;
+      }
+
+      .nav-item:hover::after {
+        width: 100%;
+      }
+
+      .contact-icon {
+        transition: all 0.3s ease;
+      }
+
+      .contact-icon:hover {
+        transform: scale(1.1);
+        color: #f94c2c;
+      }
+
+      .contact-icon:hover i {
+        transform: rotate(15deg);
+      }
+
+      .fleet-card {
+        transition: all 0.4s ease;
+        position: relative;
+      }
+
+      .fleet-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .fleet-card img {
+        transition: transform 0.4s ease;
+      }
+
+      .fleet-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .book-btn {
+        transition: all 0.3s ease;
+      }
+
+      .book-btn:hover {
+        background: #ff3311;
+        transform: scale(1.05);
+      }
+
+      .service-card {
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        transition: all 0.4s ease;
+      }
+
+      .service-card:hover {
+        transform: scale(1.05);
+      }
+
+      .hire-card {
+        transition: all 0.4s ease;
+        cursor: pointer;
+      }
+
+      .hire-card:hover {
+        transform: scale(1.05);
+      }
+
+      .hire-card .overlay {
+        transition: all 0.4s ease;
+      }
+
+      .hire-card:hover .overlay {
+        background: rgba(249, 76, 44, 0.9);
+      }
+
+      .feature-card {
+        transition: all 0.4s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px) rotate(2deg);
+        box-shadow: 0 15px 35px rgba(249, 76, 44, 0.3);
+      }
+
+      .social-icon {
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background: #f94c2c !important;
+        transform: scale(1.2) rotate(360deg);
+      }
+
+      .footer-link {
+        transition: all 0.3s ease;
+        position: relative;
+        padding-left: 0;
+      }
+
+      .footer-link:hover {
+        padding-left: 10px;
+        color: #f94c2c !important;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 50px;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #f94c2c;
+        background: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .swiper-button-next:after,
+      .swiper-button-prev:after {
+        font-size: 20px;
+      }
+
+      .swiper-pagination-bullet {
+        background: #f94c2c;
+        opacity: 0.5;
+      }
+
+      .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #f94c2c;
+      }
+
+      .submit-btn {
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .submit-btn::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      .submit-btn:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .submit-btn:hover {
+        background: #ff3311;
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(249, 76, 44, 0.5);
+      }
+
+      .form-input {
+        transition: all 0.3s ease;
+      }
+
+      .form-input:focus {
+        transform: scale(1.02);
+        border-color: #f94c2c !important;
+        box-shadow: 0 0 15px rgba(249, 76, 44, 0.3);
+      }
+
+      .logo-circle {
+        transition: all 0.4s ease;
+      }
+
+      .logo-circle:hover {
+        transform: scale(1.05) rotate(5deg);
+      }
+
+      .faq-btn {
+        transition: all 0.3s ease;
+      }
+
+      .faq-btn:hover {
+        background: #f94c2c !important;
+        color: white !important;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .float-animation {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .swiper-button-prev,
+      .swiper-rtl .swiper-button-next {
+        left: 46%;
+      }
+
+      .swiper-button-next,
+      .swiper-rtl .swiper-button-prev {
+        right: 44%;
+        top: 30%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      class="relative min-h-[120vh] bg-[url('assets/images/bannerimage.png')] bg-cover bg-center bg-no-repeat"
+    >
+      <div class="absolute inset-0 bg-black/50"></div>
+
+      <div class="w-full flex relative">
+        <div class="w-[90%] flex">
+          <div
+            class="logo-circle bg-white rounded-full w-[300px] h-[300px] top-[-180px] left-[-30px] absolute flex justify-center item-center"
+          >
+            <p class="mt-[190px] font-bold text-black text-3xl">
+              Bus <span class="text-[#F94C2C]">Hire</span>
+            </p>
+          </div>
+          <div class="w-[80%] flex flex-col mt-[-80px] items-end ml-[290px]">
+            <div class="flex gap-8 mt-[100px]">
+              <a
+                href="tel:1223445454545"
+                class="contact-icon flex items-center gap-2 font-radio text-white text-[18px]"
+              >
+                <i class="ri-phone-line text-[#F94C2C] text-[24px]"></i>
+                1223445454545
+              </a>
+              <a
+                href="tel:1223445454545"
+                class="contact-icon flex items-center gap-2 font-radio text-white text-[18px]"
+              >
+                <i class="ri-phone-line text-[#F94C2C] text-[24px]"></i>
+                1223445454545
+              </a>
+              <a
+                href="mailto:loremgmail@gmail.com"
+                class="contact-icon flex items-center gap-2 font-radio text-white text-[18px]"
+              >
+                <i class="ri-mail-line text-[#F94C2C] text-[24px]"></i>
+                loremgmail@gmail.com
+              </a>
+            </div>
+
+            <div
+              class="w-[90%] border-t border-[#BEBEBE] mt-6 flex justify-end"
+            >
+              <ul
+                class="flex text-[#FFFFFF] gap-10 pt-4 font-redhat text-[18px]"
+              >
+                <li class="nav-item">HOME</li>
+                <a href="about.html" class="nav-item">ABOUT</a>
+                <li class="nav-item">OUR SERVICES</li>
+                <a href="fleet.html" class="nav-item">OUR FLEETS</a>
+                <a href="contact.html" class="nav-item">CONTACTS</a>
+                <a href="" class="nav-item">BLOG</a>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full flex justify-center relative mt-16">
+        <div class="w-[90%] flex">
+          <div class="w-[50%]">
+            <div class="flex items-center gap-2">
+              <div class="w-[100px] h-[1px] bg-[#FFFFFF]"></div>
+              <h2 class="text-2xl text-white font-redhat font-bold text-white">
+                Best Service In United Kingdom
+              </h2>
+            </div>
+            <h1 class="text-5xl mt-6 font-redhat text-white leading-snug">
+              WELCOME TO THE <br />
+              <span class="text-[#F94C2C] mt-[5px]">BUSHIRE IN UK</span>
+            </h1>
+            <p class="text-white font-raleway mt-4">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam
+              fugit explicabo veritatis perspiciatis magnam. Dicta consequatur
+              quam at explicabo dolorem ut cum, sit culpa rem aut iusto? Earum,
+              quas quos.
+            </p>
+            <a
+              href="tel:+9123443343"
+              class="relative mt-10 inline-flex items-center cursor-pointer group"
+            >
+              <div
+                class="w-[160px] h-[50px] rounded-md border border-white text-white text-[20px] flex items-center justify-center shadow-[0_0_15px_0_#F94C2C] bg-transparent transition-all duration-300 group-hover:shadow-[0_0_25px_5px_#F94C2C]"
+              >
+                CALL NOW
+              </div>
+
+              <!-- Arrow box -->
+              <div
+                class="absolute right-[-18px] top-1/2 -translate-y-1/2 w-[30px] h-[30px] rounded-md bg-[#F94C2C] flex justify-center items-center"
+              >
+                <img src="assets/images/arrow.png" class="w-[15px]" />
+              </div>
+            </a>
+          </div>
+
+          <div class="w-[50%] relative">
+            <img
+              src="assets/images/busimage.png"
+              class="float-animation absolute z-[10] w-[90%] ml-[30px] mt-[-30px]"
+            />
+            <div class="absolute right-0">
+              <img src="assets/images/shape.png" class="h-[470px] z-[5]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="w-full flex justify-center absolute items-center py-12 mt-[-100px] z-[10]"
+    >
+      <div
+        class="w-[90%] relative md:w-[90%] bg-[#0F0F0F] rounded-2xl shadow-[0_0_20px_rgba(249,76,44,0.5)] p-8 md:p-12"
+      >
+        <h2
+          class="text-center font-redhat text-3xl md:text-4xl font-redhat font-semibold text-white mb-8"
+        >
+          <span class="text-[#F94C2C]">BOOK</span> YOUR BUS
+        </h2>
+
+        <form class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <input
+            type="text"
+            placeholder="Name"
+            class="form-input w-full p-3 rounded-lg bg-[#1A1A1A] text-white placeholder-gray-400 border border-[#F94C2C7A] focus:border-[#F94C2C] outline-none"
+          />
+          <input
+            type="text"
+            placeholder="Phone no."
+            class="form-input w-full p-3 rounded-lg bg-[#1A1A1A] text-white placeholder-gray-400 border border-[#F94C2C7A] focus:border-[#F94C2C] outline-none"
+          />
+          <input
+            type="email"
+            placeholder="Email Address"
+            class="form-input w-full p-3 rounded-lg bg-[#1A1A1A] text-white placeholder-gray-400 border border-[#F94C2C7A] focus:border-[#F94C2C] outline-none"
+          />
+          <select
+            class="form-input w-full p-3 rounded-lg bg-[#1A1A1A] text-white border border-[#F94C2C7A] focus:border-[#F94C2C] outline-none"
+          >
+            <option value="">Vehicle Type</option>
+            <option>Mini Bus</option>
+            <option>Coach</option>
+            <option>Luxury Bus</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Your Address"
+            class="form-input w-full p-3 rounded-lg bg-[#1A1A1A] text-white placeholder-gray-400 border border-[#F94C2C7A] focus:border-[#F94C2C] outline-none"
+          />
+          <input
+            type="date"
+            class="form-input w-full p-3 rounded-lg bg-[#1A1A1A] text-white border border-[#F94C2C7A] focus:border-[#F94C2C] outline-none"
+          />
+          <input
+            type="time"
+            class="form-input w-full p-3 rounded-lg bg-[#1A1A1A] text-white border border-[#F94C2C7A] focus:border-[#F94C2C] outline-none"
+          />
+          <input
+            type="text"
+            placeholder="Drop-Off Location"
+            class="form-input w-full p-3 rounded-lg bg-[#1A1A1A] text-white placeholder-gray-400 border border-[#F94C2C7A] focus:border-[#F94C2C] outline-none"
+          />
+          <input
+            type="text"
+            placeholder="Pick-Up Location"
+            class="form-input w-full p-3 rounded-lg bg-[#1A1A1A] text-white placeholder-gray-400 border border-[#F94C2C7A] focus:border-[#F94C2C] outline-none"
+          />
+        </form>
+
+        <div class="flex justify-center mt-8 absolute left-[42%]">
+          <button
+            class="submit-btn bg-[#F94C2C] font-raleway text-white text-[20px] font-semibold py-3 px-16 rounded-[10px] transition duration-300"
+          >
+            SUBMIT
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full mt-[500px]">
+      <div class="w-[95%] flex gap-10">
+        <div class="w-[50%] relative flex">
+          <img src="assets/images/Ellipse3.png" class="h-[480px] mt-10" />
+          <div
+            class="w-[400px] h-[400px] flex justify-end items-end rounded-full mt-[100px] ml-[-140px] border-[1px] border-[#F94C2C]"
+          >
+            <img
+              src="assets/images/aboutbus.jpg"
+              class="h-[370px] w-[390px] rounded-full"
+            />
+          </div>
+        </div>
+        <div class="w-[50%]">
+          <div class="flex items-center gap-2">
+            <div class="w-[150px] h-[1px] bg-[#F94C2C]"></div>
+            <h2 class="text-2xl text-black font-redhat font-bold font-inter">
+              About Us
+            </h2>
+          </div>
+          <h1
+            class="text-5xl font-semibold font-inter mt-6 font-redhat text-black leading-tight"
+          >
+            WELCOME TO THE <br />
+            <span class="text-[#F94C2C] mt-[2px]">BUSHIRE IN UK</span>
+          </h1>
+          <p class="text-black font-raleway mt-4">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy. Lorem
+            ipsum, dolor sit amet consectetur adipisicing elit. Totam fugit
+            explicabo veritatis perspiciatis magnam. Dicta consequatur quam at
+            explicabo dolorem ut cum, sit culpa rem aut iusto? Earum, quas quos.
+          </p>
+          <ul class="mt-5">
+            <li class="flex gap-2 items-center mt-2">
+              <img src="assets/images/bulletpoint.png" class="h-[20px]" />
+              Lorem Ipsum is simply dummy text of the printing
+            </li>
+            <li class="flex gap-2 items-center mt-2">
+              <img src="assets/images/bulletpoint.png" class="h-[20px]" />
+              Lorem Ipsum is simply dummy text of the printing
+            </li>
+            <li class="flex gap-2 items-center mt-2">
+              <img src="assets/images/bulletpoint.png" class="h-[20px]" />
+              Lorem Ipsum is simply dummy text of the printing
+            </li>
+          </ul>
+          <a
+            href="tel:+9123443343"
+            class="relative mt-10 inline-flex items-center cursor-pointer group"
+          >
+            <div
+              class="w-[160px] h-[50px] rounded-md border border-white text-black text-[20px] flex items-center justify-center shadow-[0_0_15px_0_#F94C2C] bg-transparent transition-all duration-300 group-hover:shadow-[0_0_25px_5px_#F94C2C]"
+            >
+              Read More
+            </div>
+
+            <!-- Arrow box -->
+            <div
+              class="absolute right-[-18px] top-1/2 -translate-y-1/2 w-[30px] h-[30px] rounded-md bg-[#F94C2C] flex justify-center items-center"
+            >
+              <img src="assets/images/arrow.png" class="w-[15px]" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full bg-[#fff4f2] h-[620px] mt-[120px] flex justify-center">
+      <div class="w-[80%] flex flex-col items-center justify-center">
+        <div class="flex gap-10 items-center">
+          <div class="w-[150px] h-[1px] bg-[#F94C2C]"></div>
+          <h3 class="text-2xl font-bold font-inter">Our Fleets</h3>
+          <div class="w-[150px] h-[1px] bg-[#F94C2C]"></div>
+        </div>
+        <h1
+          class="text-5xl font-semibold font-inter mt-6 text-black leading-tight text-center"
+        >
+          WELCOME TO THE
+          <span class="text-[#F94C2C] mt-[2px]">BUSHIRE IN UK</span>
+        </h1>
+        <div class="w-full bg-white h-[160px] absolute z-[5] mt-[190px]"></div>
+
+        <div class="w-full z-[10] mt-[70px]">
+          <div class="swiper fleetSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="fleet-card w-full px-4">
+                  <img src="assets/images/bas.png" class="w-full" />
+                  <div class="bg-[#000000] h-[100px] rounded-[10px] relative">
+                    <img src="assets/images/rounded.png" class="absolute" />
+                    <p class="text-white text-center text-[20px] font-inter">
+                      17-24 Seat Executive <br />
+                      Midi Coach
+                    </p>
+                    <p class="text-white text-center text-[20px] font-inter">
+                      17-24 Passengers
+                    </p>
+                    <img
+                      src="assets/images/rounded2.png"
+                      class="absolute bottom-0 right-0"
+                    />
+                  </div>
+                  <div class="flex justify-center">
+                    <a
+                      class="book-btn w-[130px] h-[30px] rounded-bl-[5px] rounded-br-[5px] text-white text-center bg-[#F94C2C] cursor-pointer"
+                      >Book Now</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="fleet-card w-full px-4">
+                  <img src="assets/images/bas.png" class="w-full" />
+                  <div class="bg-[#000000] h-[100px] rounded-[10px] relative">
+                    <img src="assets/images/rounded.png" class="absolute" />
+                    <p class="text-white text-center text-[20px] font-inter">
+                      33-49 Seat Standard <br />
+                      Coach
+                    </p>
+                    <p class="text-white text-center text-[20px] font-inter">
+                      33-49 Passengers
+                    </p>
+                    <img
+                      src="assets/images/rounded2.png"
+                      class="absolute bottom-0 right-0"
+                    />
+                  </div>
+                  <div class="flex justify-center">
+                    <a
+                      class="book-btn w-[130px] h-[30px] rounded-bl-[5px] rounded-br-[5px] text-white text-center bg-[#F94C2C] cursor-pointer"
+                      >Book Now</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="fleet-card w-full px-4">
+                  <img src="assets/images/bas.png" class="w-full" />
+                  <div class="bg-[#000000] h-[100px] rounded-[10px] relative">
+                    <img src="assets/images/rounded.png" class="absolute" />
+                    <p class="text-white text-center text-[20px] font-inter">
+                      49-70 Seat Luxury <br />
+                      Coach
+                    </p>
+                    <p class="text-white text-center text-[20px] font-inter">
+                      49-70 Passengers
+                    </p>
+                    <img
+                      src="assets/images/rounded2.png"
+                      class="absolute bottom-0 right-0"
+                    />
+                  </div>
+                  <div class="flex justify-center">
+                    <a
+                      class="book-btn w-[130px] h-[30px] rounded-bl-[5px] rounded-br-[5px] text-white text-center bg-[#F94C2C] cursor-pointer"
+                      >Book Now</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="fleet-card w-full px-4">
+                  <img src="assets/images/bas.png" class="w-full" />
+                  <div class="bg-[#000000] h-[100px] rounded-[10px] relative">
+                    <img src="assets/images/rounded.png" class="absolute" />
+                    <p class="text-white text-center text-[20px] font-inter">
+                      16 Seat Mini <br />
+                      Bus
+                    </p>
+                    <p class="text-white text-center text-[20px] font-inter">
+                      16 Passengers
+                    </p>
+                    <img
+                      src="assets/images/rounded2.png"
+                      class="absolute bottom-0 right-0"
+                    />
+                  </div>
+                  <div class="flex justify-center">
+                    <a
+                      class="book-btn w-[130px] h-[30px] rounded-bl-[5px] rounded-br-[5px] text-white text-center bg-[#F94C2C] cursor-pointer"
+                      >Book Now</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full flex justify-center absolute mt-20">
+              <div class="w-[80%] flex gap-5">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex justify-center mt-[80px] relative">
+      <img
+        src="assets/images/hirecircle.png"
+        class="right-0 absolute w-[25%]"
+      />
+      <div class="w-[80%] flex justify-center relative">
+        <div class="w-1/2 z-[10]">
+          <div class="flex items-center gap-2">
+            <h2 class="text-2xl text-black font-redhat font-bold font-inter">
+              You Can Hire Us From
+            </h2>
+            <div class="w-[150px] h-[1px] bg-[#F94C2C]"></div>
+          </div>
+          <h1
+            class="text-5xl font-semibold font-inter mt-6 text-black leading-tight"
+          >
+            WELCOME TO THE <br />
+            <span class="text-[#F94C2C]">BUSHIRE IN UK</span>
+          </h1>
+        </div>
+
+        <div class="w-1/2 z-[10]">
+          <p class="z-[10]">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure et
+            quidem quisquam accusamus. Eius vitae fugit natus at laboriosam
+            consequuntur quis blanditiis! Earum, ea adipisci. Fugiat aperiam
+            quibusdam corrupti quia.
+          </p>
+          <a
+            href="tel:+9123443343"
+            class="relative mt-10 inline-flex items-center cursor-pointer group"
+          >
+            <div
+              class="w-[160px] h-[50px] rounded-md border border-white text-black text-[20px] flex items-center justify-center shadow-[0_0_15px_0_#F94C2C] bg-transparent transition-all duration-300 group-hover:shadow-[0_0_25px_5px_#F94C2C]"
+            >
+              CALL NOW
+            </div>
+
+            <!-- Arrow box -->
+            <div
+              class="absolute right-[-18px] top-1/2 -translate-y-1/2 w-[30px] h-[30px] rounded-md bg-[#F94C2C] flex justify-center items-center"
+            >
+              <img src="assets/images/arrow.png" class="w-[15px]" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex justify-center mt-[80px] py-10">
+      <div class="w-[80%] flex justify-center relative gap-10">
+        <div
+          class="hire-card w-[30%] h-[290px] rounded-[10px] bg-bottom bg-cover bg-[url('assets/images/service2.jpg')] relative overflow-hidden"
+        >
+          <div
+            class="overlay w-full bg-[#F94C2C]/80 absolute bottom-0 h-[70px] text-[24px] text-white font-semibold font-raleway flex justify-center items-center rounded-tl-[200px] rounded-tr-[200px]"
+          >
+            Bradford, UK
+          </div>
+        </div>
+        <div
+          class="hire-card w-[30%] rounded-[10px] h-[290px] bg-bottom bg-cover bg-[url('assets/images/service2.jpg')] relative overflow-hidden"
+        >
+          <div
+            class="overlay w-full bg-[#F94C2C]/80 absolute bottom-0 h-[70px] text-[24px] text-white font-semibold font-raleway flex justify-center items-center rounded-tl-[200px] rounded-tr-[200px]"
+          >
+            Bradford, UK
+          </div>
+        </div>
+        <div
+          class="hire-card w-[30%] h-[290px] rounded-[10px] bg-bottom bg-cover bg-[url('assets/images/service2.jpg')] relative overflow-hidden"
+        >
+          <div
+            class="overlay w-full bg-[#F94C2C]/80 absolute bottom-0 h-[70px] text-[24px] text-white font-semibold font-raleway flex justify-center items-center rounded-tl-[200px] rounded-tr-[200px]"
+          >
+            Bradford, UK
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="w-full bg-center bg-cover bg-[url('assets/images/arial.jpg')] h-[50vh] relative"
+    >
+      <div class="absolute inset-0 bg-[#000000A6]"></div>
+      <div
+        class="w-full h-full flex flex-col items-center justify-center relative text-center px-4"
+      >
+        <h3
+          class="text-5xl font-semibold w-full md:w-[60%] text-white font-redhat font-inter leading-tight"
+        >
+          CONNECT WITH US FOR
+          <span class="text-[#F94C2C]">THE BUSHIRE IN UK</span>
+        </h3>
+        <a
+          href="tel:1223445454545"
+          class="contact-icon flex items-center font-inter gap-2 font-radio text-white text-[34px] mt-4"
+        >
+          <img src="assets/images/phone.png" class="h-[40px]" />
+          1223445454545
+        </a>
+      </div>
+      <img
+        src="assets/images/bus.png"
+        class="absolute bottom-[-40px] left-[-120px] h-[190px]"
+      />
+    </div>
+
+    <div class="flex w-full justify-center py-10">
+      <div class="w-[90%]">
+        <div class="flex flex-col items-center justify-center text-center">
+          <div class="flex gap-8 items-center mb-4">
+            <div class="w-[100px] h-[2px] bg-[#F94C2C]"></div>
+            <h4 class="text-2xl font-bold font-redhat">Our Services</h4>
+            <div class="w-[100px] h-[2px] bg-[#F94C2C]"></div>
+          </div>
+          <h4 class="text-3xl font-bold font-redhat">
+            WELCOME TO <span class="text-[#F94C2C]">THE BUS HIRE IN UK</span>
+          </h4>
+        </div>
+        <div class="w-full flex gap-10 mt-16">
+          <div
+            class="service-card h-[200px] w-[30%] bg-center bg-cover rounded-[10px] relative bg-[url('assets/images/serviceimage1.jpg')] overflow-hidden"
+          >
+            <div
+              class="bg-[#F94C2C9C]/60 w-full h-[40px] absolute bottom-0 text-white flex font-redhat justify-center text-2xl"
+            >
+              Staff Shuttle
+            </div>
+          </div>
+          <div
+            class="service-card h-[200px] w-[30%] bg-center bg-cover rounded-[10px] relative bg-[url('assets/images/serviceimage2.jpg')] overflow-hidden"
+          >
+            <div
+              class="bg-[#F94C2C9C]/60 w-full h-[40px] absolute bottom-0 text-white flex font-redhat justify-center text-2xl"
+            >
+              Conference & Events
+            </div>
+          </div>
+          <div
+            class="service-card h-[200px] w-[30%] bg-center bg-cover rounded-[10px] relative bg-[url('assets/images/serviceimage3.jpg')] overflow-hidden"
+          >
+            <div
+              class="bg-[#F94C2C9C]/60 w-full h-[40px] absolute bottom-0 text-white flex font-redhat justify-center text-2xl"
+            >
+              Trip Booker
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex justify-center bg-[#fff4f2] py-16">
+      <div class="w-[85%]">
+        <div class="flex flex-col items-center justify-center text-center">
+          <div class="flex gap-8 items-center mb-4">
+            <div class="w-[100px] h-[2px] bg-[#F94C2C]"></div>
+            <h4 class="text-2xl font-bold font-redhat">Why Choose Us</h4>
+            <div class="w-[100px] h-[2px] bg-[#F94C2C]"></div>
+          </div>
+          <h4 class="text-3xl font-bold font-redhat">
+            WELCOME TO <span class="text-[#F94C2C]">THE BUS HIRE IN UK</span>
+          </h4>
+        </div>
+
+        <div class="w-full flex flex-col lg:flex-row gap-12 mt-16">
+          <div class="w-full lg:w-[60%] grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div
+              class="feature-card p-6 rounded-2xl shadow-md bg-[#F94C2CCC] hover:shadow-lg"
+            >
+              <div class="text-4xl text-[#F94C2C] mb-3 flex justify-center">
+                <img src="assets/images/vehicle.png" class="h-[50px]" />
+              </div>
+              <h3
+                class="font-redhat font-bold text-[25px] mb-2 text-center text-white"
+              >
+                Wide Range of Vehicles
+              </h3>
+              <p class="text-[18px] text-center text-white">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+
+            <div
+              class="feature-card p-6 rounded-2xl shadow-md bg-[#F94C2CCC] hover:shadow-lg"
+            >
+              <div class="text-4xl text-[#F94C2C] mb-3 flex justify-center">
+                <img src="assets/images/taxidriver.png" class="h-[90px]" />
+              </div>
+              <h3
+                class="font-redhat font-bold text-[25px] mt-[-20px] mb-2 text-center text-white"
+              >
+                Professional & Experienced Drivers
+              </h3>
+              <p class="text-[18px] text-center text-white">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+
+            <div
+              class="feature-card p-6 rounded-2xl shadow-md bg-[#F94C2CCC] hover:shadow-lg"
+            >
+              <div class="text-4xl text-[#F94C2C] mb-3 flex justify-center">
+                <img src="assets/images/affordable.png" class="h-[70px]" />
+              </div>
+              <h3
+                class="font-redhat font-bold text-[25px] mb-2 text-center text-white"
+              >
+                Affordable & Transparent Pricing
+              </h3>
+              <p class="text-[18px] text-center text-white">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+
+            <div
+              class="feature-card p-6 rounded-2xl shadow-md bg-[#F94C2CCC] hover:shadow-lg"
+            >
+              <div class="text-4xl text-[#F94C2C] mb-3 flex justify-center">
+                <img src="assets/images/conformable.png" class="h-[60px]" />
+              </div>
+              <h3
+                class="font-redhat font-bold text-[25px] mb-2 text-center text-white"
+              >
+                Comfort, Cleanliness & Reliability
+              </h3>
+              <p class="text-[18px] text-center text-white">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="w-full lg:w-[40%] rounded-2xl bg-cover bg-center shadow-md"
+            style="background-image: url('assets/images/arial.jpg')"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex justify-center py-10">
+      <div class="w-[90%]">
+        <div class="flex gap-8 w-full justify-center items-center mb-4">
+          <div class="w-[100px] h-[1px] bg-[#F94C2C]"></div>
+          <h4 class="text-[25px] font-inter font-bold">Testimonial</h4>
+          <div class="w-[100px] h-[1px] bg-[#F94C2C]"></div>
+        </div>
+
+        <div class="w-full flex justify-center mb-10">
+          <h4 class="text-4xl font-bold font-redhat">
+            Why <span class="text-[#F94C2C]">Client's</span> Say ?
+          </h4>
+        </div>
+
+        <div class="w-full flex justify-center">
+          <div
+            class="w-[70%] py-10 px-6 bg-[#FFF2F2] rounded-xl relative shadow-md"
+          >
+            <img
+              src="assets/images/review.png"
+              class="h-[50px] absolute left-4 top-4 opacity-30"
+            />
+            <div class="w-full flex justify-center">
+              <p
+                class="text-center text-[#353535] font-raleway text-[19px] px-10 pt-10 leading-relaxed"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy.
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+            <div class="mt-6 text-center">
+              <h3 class="font-bold font-redhat text-lg">John Cena</h3>
+              <p class="text-sm text-gray-500 font-redhat">Our Client</p>
+            </div>
+            <img
+              src="assets/images/review.png"
+              class="h-[50px] absolute right-4 bottom-4 rotate-180 opacity-30"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex justify-center py-16 relative">
+      <div class="w-[70%]">
+        <h2 class="text-[40px] font-redhat font-bold text-center mb-10">
+          Frequently <span class="text-[#F94C2C]">Asked</span> Questions
+        </h2>
+
+        <div class="space-y-4">
+          <div class="border rounded-lg overflow-hidden shadow-sm">
+            <button
+              class="faq-btn w-full flex justify-between items-center bg-[#F94C2C] border-[1px] border-[rgba(249,76,44,0.58)] px-5 py-4 text-white font-semibold font-raleway text-left"
+              onclick="toggleFaq(1)"
+            >
+              <span
+                >1. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry ?</span
+              >
+              <span class="text-2xl font-bold" id="icon-1">−</span>
+            </button>
+            <div
+              id="content-1"
+              class="px-5 font-raleway py-4 bg-white text-gray-700"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy.
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </div>
+          </div>
+
+          <div class="border rounded-lg overflow-hidden shadow-sm">
+            <button
+              class="faq-btn w-full flex font-raleway justify-between items-center px-5 py-4 bg-[#FFF2F2] font-semibold text-left"
+              onclick="toggleFaq(2)"
+            >
+              <span
+                >2. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry ?</span
+              >
+              <span class="text-2xl font-bold text-[#F94C2C]" id="icon-2"
+                >+</span
+              >
+            </button>
+            <div
+              id="content-2"
+              class="hidden font-raleway px-5 py-4 bg-white text-gray-700"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </div>
+          </div>
+
+          <div class="border rounded-lg overflow-hidden shadow-sm">
+            <button
+              class="faq-btn w-full flex justify-between font-raleway items-center px-5 py-4 bg-[#FFF2F2] font-semibold text-left"
+              onclick="toggleFaq(3)"
+            >
+              <span
+                >3. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry ?</span
+              >
+              <span class="text-2xl font-bold text-[#F94C2C]" id="icon-3"
+                >+</span
+              >
+            </button>
+            <div
+              id="content-3"
+              class="hidden font-raleway px-5 py-4 bg-white text-gray-700"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="assets/images/faqcircle.png" class="absolute left-0 w-[20%]" />
+    </div>
+
+    <div
+      class="relative bg-cover bg-center bg-[url('assets/images/footerbg.jpg')] py-12"
+    >
+      <div class="absolute inset-0 bg-black/80"></div>
+
+      <div class="relative w-full flex justify-center">
+        <div class="w-[80%] grid grid-cols-1 md:grid-cols-4 gap-10 text-white">
+          <div>
+            <h5 class="text-3xl font-bold uppercase">
+              Bus <span class="text-[#F94C2C]">Hire</span>
+            </h5>
+            <p
+              class="mt-3 font-raleway text-[18px] text-gray-300 leading-relaxed"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard.
+            </p>
+
+            <div
+              class="flex gap-2 justify-center py-2 rounded-tr-[10px] rounded-br-[10px] mt-5 bg-[#F94C2C9C] ml-[-150px]"
+            >
+              <a
+                class="social-icon w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white cursor-pointer"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                class="social-icon w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white cursor-pointer"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                class="social-icon w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white cursor-pointer"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="ml-10">
+            <h3 class="text-[25px] font-semibold font-redhat mb-4">
+              Quick Links
+            </h3>
+            <ul class="space-y-2 text-gray-300 font-raleway text-[18px]">
+              <li class="footer-link cursor-pointer flex gap-2">
+                <img src="assets/images/check.png" /> Home
+              </li>
+              <a
+                href="about.html"
+                class="footer-link cursor-pointer flex gap-2"
+              >
+                <img src="assets/images/check.png" /> About Us
+              </a>
+              <li class="footer-link cursor-pointer flex gap-2">
+                <img src="assets/images/check.png" /> Our Services
+              </li>
+              <a
+                href="fleet.html"
+                class="footer-link cursor-pointer flex gap-2"
+              >
+                <img src="assets/images/check.png" /> Our Fleets
+              </a>
+              <a
+                href="contact.html"
+                class="footer-link cursor-pointer flex gap-2"
+              >
+                <img src="assets/images/check.png" /> Contact
+              </a>
+              <li class="footer-link cursor-pointer flex gap-2">
+                <img src="assets/images/check.png" /> Blog
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-[25px] font-semibold font-redhat mb-4">
+              Contact Info
+            </h3>
+            <ul class="space-y-4 text-gray-300 font-raleway text-[18px]">
+              <li class="flex gap-3">
+                <i class="fa-solid fa-location-dot text-[#F94C2C] text-lg"></i>
+                32 Lorem Rd, Lorem BR2 8BA,<br />United Kingdom
+              </li>
+              <li class="flex gap-3">
+                <i class="fa-solid fa-envelope text-[#F94C2C] text-lg"></i>
+                Loremtest@gmail.com
+              </li>
+              <li class="flex gap-3">
+                <i class="fa-solid fa-phone text-[#F94C2C] text-lg"></i>
+                0123-4567-6065
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-[25px] font-semibold font-redhat mb-4">
+              Working Hours
+            </h3>
+            <p class="text-gray-300 mb-2">
+              Monday to Friday:
+              <span class="text-white font-semibold">8am to 8pm</span>
+            </p>
+            <p class="text-gray-300">
+              Saturday–Sunday:
+              <span class="text-white font-semibold">9am to 5pm</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full flex justify-center">
+        <div
+          class="relative w-[80%] mt-10 border-t border-[#F94C2C] pt-4 text-center text-gray-300"
+        >
+          © 2025 All Rights Reserved Lorem Ipsum Services
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      function toggleFaq(id) {
+        const content = document.getElementById("content-" + id);
+        const icon = document.getElementById("icon-" + id);
+
+        if (content.classList.contains("hidden")) {
+          content.classList.remove("hidden");
+          icon.innerHTML = "−";
+        } else {
+          content.classList.add("hidden");
+          icon.innerHTML = "+";
+        }
+      }
+
+      var swiper = new Swiper(".fleetSwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
