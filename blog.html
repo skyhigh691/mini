@@ -167,11 +167,11 @@
                 class="flex text-[#FFFFFF] gap-10 pt-4 font-redhat text-[18px]"
               >
                 <a href="index.html" class="nav-item">HOME</a>
-                <li class="nav-item">ABOUT</li>
-                <li class="nav-item">OUR SERVICES</li>
+                <a href="about.html" class="nav-item">ABOUT</a>
+                <a href="services.html" class="nav-item">OUR SERVICES</a>
                 <a href="fleet.html" class="nav-item">OUR FLEETS</a>
-                <li class="nav-item">CONTACTS</li>
-                <li class="nav-item">BLOG</li>
+                <a href="contact.html" class="nav-item">CONTACTS</a>
+                <a href="blog.html" class="nav-item">BLOG</a>
               </ul>
             </div>
           </div>
@@ -791,6 +791,7 @@
       </div>
     </div>
 
+    <!-- FOOTER -->
     <div
       class="relative bg-cover bg-center bg-[url('assets/images/footerbg.jpg')] py-12"
     >
@@ -835,9 +836,12 @@
               Quick Links
             </h3>
             <ul class="space-y-2 text-gray-300 font-raleway text-[18px]">
-              <li class="footer-link cursor-pointer flex gap-2">
+              <a
+                href="index.html"
+                class="footer-link cursor-pointer flex gap-2"
+              >
                 <img src="assets/images/check.png" /> Home
-              </li>
+              </a>
               <a
                 href="about.html"
                 class="footer-link cursor-pointer flex gap-2"
@@ -859,9 +863,9 @@
               >
                 <img src="assets/images/check.png" /> Contact
               </a>
-              <li class="footer-link cursor-pointer flex gap-2">
+              <a href="blog.html" class="footer-link cursor-pointer flex gap-2">
                 <img src="assets/images/check.png" /> Blog
-              </li>
+              </a>
             </ul>
           </div>
 
@@ -909,7 +913,6 @@
         </div>
       </div>
     </div>
-
     <script>
       const loadMoreBtn = document.getElementById("load-more-btn");
       const postsToLoad = parseInt(loadMoreBtn.dataset.postsToLoad);

@@ -473,6 +473,7 @@
       <img src="assets/images/faqcircle.png" class="absolute left-0 w-[20%]" />
     </div>
 
+    <!-- FOOTER -->
     <div
       class="relative bg-cover bg-center bg-[url('assets/images/footerbg.jpg')] py-12"
     >
@@ -517,9 +518,12 @@
               Quick Links
             </h3>
             <ul class="space-y-2 text-gray-300 font-raleway text-[18px]">
-              <li class="footer-link cursor-pointer flex gap-2">
+              <a
+                href="index.html"
+                class="footer-link cursor-pointer flex gap-2"
+              >
                 <img src="assets/images/check.png" /> Home
-              </li>
+              </a>
               <a
                 href="about.html"
                 class="footer-link cursor-pointer flex gap-2"
@@ -541,9 +545,9 @@
               >
                 <img src="assets/images/check.png" /> Contact
               </a>
-              <li class="footer-link cursor-pointer flex gap-2">
+              <a href="blog.html" class="footer-link cursor-pointer flex gap-2">
                 <img src="assets/images/check.png" /> Blog
-              </li>
+              </a>
             </ul>
           </div>
 
@@ -591,7 +595,6 @@
         </div>
       </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       function toggleFaq(id) {
